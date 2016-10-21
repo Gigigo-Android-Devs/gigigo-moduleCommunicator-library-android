@@ -21,6 +21,7 @@ android {
 dependencies {
   compile fileTree(dir: 'libs', include: ['*.jar'])
 
-  compile rootProject.ext.modules.modulefactory
+  compile rootProject.ext.libraries.ggglib
+
   compile rootProject.ext.modules.modulerouter
 }

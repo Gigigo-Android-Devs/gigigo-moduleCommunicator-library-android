@@ -1,12 +1,15 @@
 package com.gigigo.ox.executor;
 
 import android.content.Context;
-import com.gigigo.entities.BaseModuleActionData;
+import android.content.Intent;
+import com.gigigo.ox.entities.OxModuleActionData;
 
 /**
  * Created by rui.alonso on 19/10/16.
  */
 public class OxModuleActionExecutor {
+  public static final String BROADCAST_ACTION = "OX_ACTION";
+  public static final String EXTRA_DATA = "OX_EXTRA_DATA";
   public static OxModuleActionExecutor instance;
   private Context context;
 
@@ -19,7 +22,10 @@ public class OxModuleActionExecutor {
     return instance;
   }
 
-  public void executeAction(BaseModuleActionData actionData) {
-
+  public void executeAction(OxModuleActionData actionData) {
+    Intent intent = new Intent();
+    intent.putExtra(EXTRA_DATA, actionData);
+    intent.setAction(BROADCAST_ACTION);
+    context.sendBroadcast(intent);
   }
 }

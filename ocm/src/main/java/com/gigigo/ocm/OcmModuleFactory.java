@@ -1,12 +1,13 @@
 package com.gigigo.ocm;
 
 import android.content.Context;
-import com.gigigo.ModuleFactory;
-import com.gigigo.ModuleRouter;
-import com.gigigo.entities.BaseModuleActionData;
+import com.gigigo.modulerouter.ModuleFactory;
+import com.gigigo.modulerouter.ModuleRouter;
+import com.gigigo.modulerouter.entities.BaseModuleActionData;
 import com.gigigo.ocm.entities.OcmActionType;
 import com.gigigo.ocm.entities.OcmModuleActionData;
 import com.gigigo.ocm.executor.OcmModuleActionExecutor;
+import com.gigigo.ocm.mappers.OcmActionDataMapper;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +15,7 @@ import java.util.List;
  * Created by rui.alonso on 19/10/16.
  * AbstractFactory - ConcreteFactory
  */
-public class OcmModuleFactory implements ModuleFactory<OcmModuleActionData> {
+public class OcmModuleFactory implements ModuleFactory<OcmModuleActionData, BaseModuleActionData> {
   public static OcmModuleFactory instance;
   public static String MODULE_NAME = "ORCHEXTRA_CONTENT_MANAGER_MODULE";
 
@@ -22,6 +23,7 @@ public class OcmModuleFactory implements ModuleFactory<OcmModuleActionData> {
   private OcmModuleActionExecutor ocmModuleActionExecutor;
   //private Map<String, ActionFactory> actionFactoryMap;
   private List<OcmActionType> actionTypes;
+  private OcmActionDataMapper ocmActionDataMapper;
 
   private OcmModuleFactory(Context context) {
     initModule(context);
@@ -37,6 +39,7 @@ public class OcmModuleFactory implements ModuleFactory<OcmModuleActionData> {
     this.moduleRouter = ModuleRouter.newInstance();
     this.moduleRouter.addModule(this);
     this.ocmModuleActionExecutor = OcmModuleActionExecutor.newInstance(context);
+    this.ocmActionDataMapper = new OcmActionDataMapper();
   }
 
   private void setActions() {
@@ -59,13 +62,14 @@ public class OcmModuleFactory implements ModuleFactory<OcmModuleActionData> {
     return actionTypes.contains(ocmActionType);
   }
 
-  @Override public void execute(BaseModuleActionData actionData) {
-    //TODO: parse from BaseModuleActionData to OcmModuleActionData
-    ocmModuleActionExecutor.executeAction(actionData);
-  }
 
   @Override public void requestForExecute(OcmModuleActionData actionData) {
-    //TODO: parse from OcmModuleActionData to BaseModuleActionData
-    moduleRouter.route(actionData);
+    BaseModuleActionData baseActionData = ocmActionDataMapper.modelToExternalClass(actionData);
+    moduleRouter.sendMessage(baseActionData);
+  }
+
+  @Override public void receiveMessage(BaseModuleActionData actionData) {
+    OcmModuleActionData ocmActionData = ocmActionDataMapper.externalClassToModel(actionData);
+    ocmModuleActionExecutor.executeAction(ocmActionData);
   }
 }

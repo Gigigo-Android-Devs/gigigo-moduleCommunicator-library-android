@@ -9,7 +9,6 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/modulefactory" />
             <option value="$PROJECT_DIR$/modulerouter" />
             <option value="$PROJECT_DIR$/ocm" />
             <option value="$PROJECT_DIR$/ox" />

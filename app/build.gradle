@@ -5,6 +5,7 @@ android {
   buildToolsVersion rootProject.ext.androidBuildToolsVersion
 
   defaultConfig {
+    applicationId "com.gigigo.modulecommunicator_demo"
     minSdkVersion rootProject.ext.androidMinSdkVersion
     targetSdkVersion rootProject.ext.androidTargetSdkVersion
     versionCode 1

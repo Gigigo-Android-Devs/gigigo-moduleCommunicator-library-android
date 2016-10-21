@@ -1,1 +1,1 @@
-include ':app', ':modulerouter', ':modulefactory', ':ocm', ':ox'
+include ':app', ':modulerouter', ':ocm', ':ox'

@@ -1,6 +1,6 @@
 package com.gigigo.ox.entities;
 
-import com.gigigo.entities.BaseModuleActionData;
+import com.gigigo.modulerouter.entities.BaseModuleActionData;
 import com.gigigo.ox.OxModuleFactory;
 
 /**
