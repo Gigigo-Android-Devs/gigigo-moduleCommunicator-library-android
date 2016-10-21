@@ -1,7 +1,7 @@
 package com.gigigo.modulerouter;
 
 import com.gigigo.modulerouter.entities.BaseModuleActionData;
-import com.gigigo.modulerouter.router.Router;
+import com.gigigo.router.Router;
 import java.util.Iterator;
 
 public class ModuleRouter extends Router<ModuleFactory, BaseModuleActionData> {

@@ -1,4 +1,4 @@
-package com.gigigo.modulerouter.router;
+package com.gigigo.router;
 
 import java.lang.ref.WeakReference;
 import java.util.HashMap;

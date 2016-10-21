@@ -2,7 +2,7 @@ package com.gigigo.modulerouter.entities;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import com.gigigo.modulerouter.router.Message;
+import com.gigigo.router.Message;
 
 /**
  * Created by rui.alonso on 19/10/16.

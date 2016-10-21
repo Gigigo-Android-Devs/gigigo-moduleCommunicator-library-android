@@ -1,4 +1,4 @@
-package com.gigigo.modulerouter.router;
+package com.gigigo.router;
 
 /**
  * Created by rui.alonso on 20/10/16.

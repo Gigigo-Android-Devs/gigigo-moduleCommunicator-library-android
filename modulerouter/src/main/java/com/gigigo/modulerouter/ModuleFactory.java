@@ -1,7 +1,7 @@
 package com.gigigo.modulerouter;
 
-import com.gigigo.modulerouter.router.Message;
-import com.gigigo.modulerouter.router.Receiver;
+import com.gigigo.router.Message;
+import com.gigigo.router.Receiver;
 
 /**
  * Created by rui.alonso on 19/10/16.

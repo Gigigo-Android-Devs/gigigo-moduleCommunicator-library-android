@@ -14,7 +14,8 @@ allprojects {
                      espresso         : 'com.android.support.test.espresso:espresso-core:2.2.1',
                      mockWebServer    : 'com.squareup.okhttp:mockwebserver:2.6.0']
 
-    modules = [modulerouter : project(":modulerouter"),
+    modules = [router : project(":router"),
+               modulerouter : project(":modulerouter"),
                ocm          : project(":ocm"),
                ox           : project(":ox")]
   }
