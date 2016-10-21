@@ -1,4 +1,4 @@
-package com.gigigo.modulerouter.entities;
+package com.gigigo.modulerouter.router;
 
 import android.os.Parcel;
 import android.os.Parcelable;

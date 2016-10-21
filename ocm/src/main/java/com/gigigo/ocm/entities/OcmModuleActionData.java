@@ -1,6 +1,6 @@
 package com.gigigo.ocm.entities;
 
-import com.gigigo.modulerouter.entities.BaseModuleActionData;
+import com.gigigo.modulerouter.router.BaseModuleActionData;
 import com.gigigo.ocm.OcmModuleFactory;
 
 /**

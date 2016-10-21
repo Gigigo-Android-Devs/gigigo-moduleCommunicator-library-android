@@ -2,8 +2,8 @@ package com.gigigo.ocm;
 
 import android.content.Context;
 import com.gigigo.modulerouter.ModuleFactory;
-import com.gigigo.modulerouter.ModuleRouter;
-import com.gigigo.modulerouter.entities.BaseModuleActionData;
+import com.gigigo.modulerouter.router.ModuleRouter;
+import com.gigigo.modulerouter.router.BaseModuleActionData;
 import com.gigigo.ocm.entities.OcmActionType;
 import com.gigigo.ocm.entities.OcmModuleActionData;
 import com.gigigo.ocm.executor.OcmModuleActionExecutor;

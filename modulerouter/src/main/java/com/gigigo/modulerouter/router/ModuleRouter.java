@@ -1,6 +1,6 @@
-package com.gigigo.modulerouter;
+package com.gigigo.modulerouter.router;
 
-import com.gigigo.modulerouter.entities.BaseModuleActionData;
+import com.gigigo.modulerouter.ModuleFactory;
 import com.gigigo.router.Router;
 import java.util.Iterator;
 

@@ -1,7 +1,7 @@
 package com.gigigo.ox.mappers;
 
 import com.gigigo.ggglib.mappers.Mapper;
-import com.gigigo.modulerouter.entities.BaseModuleActionData;
+import com.gigigo.modulerouter.router.BaseModuleActionData;
 import com.gigigo.ox.entities.OxModuleActionData;
 
 /**
