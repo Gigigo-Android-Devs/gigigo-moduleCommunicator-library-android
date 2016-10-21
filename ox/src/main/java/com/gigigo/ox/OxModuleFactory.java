@@ -2,9 +2,7 @@ package com.gigigo.ox;
 
 import android.content.Context;
 import com.gigigo.modulerouter.ModuleFactory;
-import com.gigigo.modulerouter.router.ModuleRouter;
 import com.gigigo.modulerouter.router.BaseModuleActionData;
-import com.gigigo.modulerouter.router.Message;
 import com.gigigo.ox.entities.OxActionType;
 import com.gigigo.ox.entities.OxModuleActionData;
 import com.gigigo.ox.executor.OxModuleActionExecutor;
@@ -16,18 +14,18 @@ import java.util.List;
  * Created by rui.alonso on 19/10/16.
  * AbstractFactory - ConcreteFactory
  */
-public class OxModuleFactory implements ModuleFactory<OxModuleActionData, BaseModuleActionData> {
+public class OxModuleFactory extends ModuleFactory<OxModuleActionData,BaseModuleActionData> {
   public static OxModuleFactory instance;
-  public static String MODULE_NAME = "ORCHEXTRA_MODULE";
+  private static String MODULE_NAME = "ORCHEXTRA_MODULE";
 
-  private ModuleRouter moduleRouter;
   private OxModuleActionExecutor oxModuleActionExecutor;
   //private Map<String, ActionFactory> actionFactoryMap;
   private List<OxActionType> actionTypes;
   private OxActionDataMapper oxActionDataMapper;
 
   private OxModuleFactory(Context context) {
-    initModule(context);
+    this.oxModuleActionExecutor = OxModuleActionExecutor.newInstance(context);
+    this.oxActionDataMapper = new OxActionDataMapper();
     setActions();
   }
 
@@ -36,11 +34,8 @@ public class OxModuleFactory implements ModuleFactory<OxModuleActionData, BaseMo
     return instance;
   }
 
-  private void initModule(Context context) {
-    this.moduleRouter = ModuleRouter.newInstance();
-    this.moduleRouter.addModule(this);
-    this.oxModuleActionExecutor = OxModuleActionExecutor.newInstance(context);
-    this.oxActionDataMapper = new OxActionDataMapper();
+  @Override public String getModuleName() {
+    return MODULE_NAME;
   }
 
   private void setActions() {
@@ -48,10 +43,6 @@ public class OxModuleFactory implements ModuleFactory<OxModuleActionData, BaseMo
     actionTypes = new ArrayList<>();
     actionTypes.add(OxActionType.SCAN);
     actionTypes.add(OxActionType.WEBVIEW);
-  }
-
-  @Override public String getModuleName() {
-    return MODULE_NAME;
   }
 
   @Override public boolean findAction(String actionType) {
