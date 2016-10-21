@@ -20,5 +20,4 @@ android {
 }
 
 dependencies {
-  compile rootProject.ext.modules.router
 }

@@ -16,6 +16,7 @@ allprojects {
 
     modules = [router : project(":router"),
                modulerouter : project(":modulerouter"),
+               actionfactory : project(":actionfactory"),
                ocm          : project(":ocm"),
                ox           : project(":ox")]
   }
