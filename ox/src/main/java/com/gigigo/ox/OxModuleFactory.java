@@ -16,7 +16,7 @@ import java.util.List;
  */
 public class OxModuleFactory extends ModuleFactory<OxModuleActionData,BaseModuleActionData> {
   public static OxModuleFactory instance;
-  private static String MODULE_NAME = "ORCHEXTRA_MODULE";
+  public static String MODULE_NAME = "ORCHEXTRA_MODULE";
 
   private OxModuleActionExecutor oxModuleActionExecutor;
   //private Map<String, ActionFactory> actionFactoryMap;

@@ -1,4 +1,4 @@
-package com.gigigo.actionfactory;
+package com.gigigo.featurefactory;
 
 import org.junit.Test;
 

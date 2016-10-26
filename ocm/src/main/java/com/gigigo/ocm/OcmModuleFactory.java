@@ -16,7 +16,7 @@ import java.util.List;
  */
 public class OcmModuleFactory extends ModuleFactory<OcmModuleActionData, BaseModuleActionData> {
   public static OcmModuleFactory instance;
-  private static String MODULE_NAME = "ORCHEXTRA_CONTENT_MANAGER_MODULE";
+  public static String MODULE_NAME = "ORCHEXTRA_CONTENT_MANAGER_MODULE";
 
   private OcmModuleActionExecutor ocmModuleActionExecutor;
   //private Map<String, ActionFactory> actionFactoryMap;
@@ -40,11 +40,15 @@ public class OcmModuleFactory extends ModuleFactory<OcmModuleActionData, BaseMod
 
   private void setActions() {
     //actionFactoryMap = new HashMap<>();
+
+    //TODO: core features
     actionTypes = new ArrayList<>();
     actionTypes.add(OcmActionType.GO_CONTENT);
     actionTypes.add(OcmActionType.ARTICLE);
     actionTypes.add(OcmActionType.IMAGE);
     actionTypes.add(OcmActionType.VIDEO);
+
+    //TODO: extern feature
     actionTypes.add(OcmActionType.WEBVIEW);
   }
 
@@ -61,6 +65,8 @@ public class OcmModuleFactory extends ModuleFactory<OcmModuleActionData, BaseMod
 
   @Override public void receiveMessage(BaseModuleActionData actionData) {
     OcmModuleActionData ocmActionData = ocmActionDataMapper.externalClassToModel(actionData);
+
+    //TODO: ocmModuleActionDispatcher: dispatch action to concrete feature
     ocmModuleActionExecutor.executeAction(ocmActionData);
   }
 }

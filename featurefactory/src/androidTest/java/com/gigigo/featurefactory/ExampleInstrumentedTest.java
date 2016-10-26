@@ -1,4 +1,4 @@
-package com.gigigo.actionfactory;
+package com.gigigo.featurefactory;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -19,6 +19,6 @@ import static org.junit.Assert.*;
     // Context of the app under test.
     Context appContext = InstrumentationRegistry.getTargetContext();
 
-    assertEquals("com.gigigo.actionfactory.test", appContext.getPackageName());
+    assertEquals("com.gigigo.featurefactory.test", appContext.getPackageName());
   }
 }

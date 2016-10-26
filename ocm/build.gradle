@@ -24,5 +24,4 @@ dependencies {
   compile rootProject.ext.libraries.ggglib
 
   compile rootProject.ext.modules.modulerouter
-  compile rootProject.ext.modules.actionfactory
 }
